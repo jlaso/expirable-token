@@ -11,3 +11,14 @@ and the differences between them as well.
 
 When the hash/token is decoded the class detects if the dates match.
 
+## Install in your project
+
+Just require it in your Gemfile
+
+```
+gem 'expirable-token'
+```
+
+[![Gem Version](https://badge.fury.io/rb/expirable-token.svg)](https://badge.fury.io/rb/expirable-token)
+
+[Visit Rubygems.org](https://rubygems.org/gems/expirable-token)

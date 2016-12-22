@@ -1,5 +1,5 @@
 Gem::Specification.new do |s|
-  s.name        = 'ExpirableToken'
+  s.name        = 'expirable-token'
   s.version     = '0.0.1'
   s.date        = '2016-12-22'
   s.summary     = "A useful class to generate tokens auto-expirable"
@@ -7,7 +7,6 @@ Gem::Specification.new do |s|
   s.authors     = ["Joseluis Laso"]
   s.email       = 'jlaso@joseluislaso.es'
   s.files       = ["lib/expirable_token.rb"]
-  s.homepage    =
-      'http://rubygems.org/gems/expirable_token'
-  s.license       = 'MIT'
+  s.homepage    = 'https://rubygems.org/gems/expirable-token'
+  s.license     = 'MIT'
 end
