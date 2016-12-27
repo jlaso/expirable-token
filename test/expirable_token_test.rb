@@ -21,4 +21,16 @@ class ExpirableTokenTest < Test::Unit::TestCase
     assert_equal('abcd', new_token.id)
     assert_equal([1,2,3,'Hi'], new_token.extra)
   end
+
+  def test_expire_on
+    time = Time.now.to_i + 123_456
+    test_token = ExpirableToken.new('abcd', [1,2,3,'Hi'], time)
+    assert(test_token.is_valid, 'token is not valid')
+    token = test_token.encode
+    assert(!token.nil?)
+    new_token = ExpirableToken.from_token(token)
+    assert_equal('abcd', new_token.id)
+    assert_equal([1,2,3,'Hi'], new_token.extra)
+    assert_equal(time, new_token.expire_on)
+  end
 end

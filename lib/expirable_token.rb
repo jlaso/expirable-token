@@ -6,6 +6,7 @@ class ExpirableToken
 
   attr_reader :extra
   attr_reader :id
+  attr_reader :expire_on
 
   def initialize(id, extra, expire_on = nil)
     @id = id
@@ -13,6 +14,8 @@ class ExpirableToken
     @created_on = Time.now.to_i
     if expire_on.nil?
       @expire_on = @created_on + 86400
+    else
+      @expire_on = expire_on
     end
     @diff = @expire_on - @created_on
   end
