@@ -1,6 +1,7 @@
 require 'time'
 require 'json'
 require 'base64'
+require 'uri'
 
 class ExpirableToken
 
@@ -26,7 +27,7 @@ class ExpirableToken
   end
 
   def encode
-    Base64.encode64(
+    URI::encode(Base64.encode64(
       JSON.generate(
         {
           0 => @id,
@@ -36,11 +37,11 @@ class ExpirableToken
           4 => @expire_on
         }
       )
-    ).chomp.chomp('=').chomp('=')
+    ).chomp.chomp('=').chomp('='))
   end
 
   def decode(token)
-    a = JSON.parse(Base64.decode64(token+"==\n"))
+    a = JSON.parse(Base64.decode64(URI::decode(token)+"==\n"))
     @id = a['0']
     @extra = a['1']
     @diff = a['2']
